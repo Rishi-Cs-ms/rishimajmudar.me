@@ -31,13 +31,13 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::458130036240:role/github-action-role
+          role-to-assume: arn:aws:iam::458130036240:role/github-actions-portfolio
           aws-region: us-east-1 # Adjust if your bucket is in a different region
 
       - name: Deploy to S3
         run: |
-          aws s3 sync dist/ s3://rishimajmudar.me --delete
+          aws s3 sync dist/ s3://rishimajmudar-portfolio --delete
 
       - name: Create CloudFront invalidation
         run: |
-          aws cloudfront create-invalidation --distribution-id E36HCE2AR33LRH --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E8QXJO4IJX05O --paths "/*"

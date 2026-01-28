@@ -422,7 +422,7 @@ const App = () => {
             ))}
           </div>
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} Rishi Majmudar. Built for high impact.
+            © {new Date().getFullYear()} Rishi Majmudar. @ 2026.
           </p>
         </div>
       </footer>

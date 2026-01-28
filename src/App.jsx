@@ -57,7 +57,7 @@ const Nav = () => {
             </a>
           ))}
           <a
-            href="/assets/Resume_rishi.pdf"
+            href="/api/resume"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all shadow-lg shadow-blue-500/20 active:scale-95 text-xs font-bold"
@@ -93,7 +93,7 @@ const Nav = () => {
                 </a>
               ))}
               <a
-                href="/assets/Resume_rishi.pdf"
+                href="/api/resume"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-4 bg-blue-600 text-center text-white rounded-xl font-bold"

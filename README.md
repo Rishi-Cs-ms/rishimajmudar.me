@@ -35,6 +35,47 @@ This project showcases a modern, high-performance web application built with **R
 
 ---
 
+## 🏗 Architecture & Infrastructure
+
+### 🚀 Infrastructure & Deployment Flow
+The infrastructure is provisioned using **Terraform** with state-locking managed by **Amazon S3** and **DynamoDB**. The deployment is fully automated via **GitHub Actions**.
+
+```mermaid
+graph TD
+    A[GitHub Repo] --> B[Terraform]
+    B -->|Executed Locally| C[S3 + DynamoDB State Locking]
+    B --> D[GitHub Actions CI/CD]
+    D --> E[Push Code to S3]
+    E --> F[Private S3 Bucket]
+    F --> G[Amazon CloudFront Global CDN]
+    G --> H[AWS WAF]
+    H --> I[SSL/TLS ACM]
+    I --> J[Route 53 DNS Records]
+    J --> K[User Accesses Website]
+```
+
+### 🌐 User Runtime Traffic
+Secure and optimized traffic flow from the end-user to the static content hosted on S3.
+
+```mermaid
+graph LR
+    User[User] --> WAF[AWS WAF]
+    WAF --> R53[Route 53 DNS]
+    R53 --> CF[Amazon CloudFront]
+    CF --> S3[Private S3 Bucket - OAC]
+```
+
+### 🧱 Core Components
+
+-   **Terraform (IaC):** Manages the entire AWS lifecycle. Uses S3 for state storage and DynamoDB for state locking to prevent concurrent modifications.
+-   **GitHub Actions:** Handles the CI/CD pipeline, building the React app and syncing the production build to S3.
+-   **Amazon S3:** Hosts the static website files. Public access is disabled, and content is served exclusively through CloudFront.
+-   **Amazon CloudFront:** Acts as a global CDN, caching content at edge locations to minimize latency. Integrated with **Origin Access Control (OAC)** for secure S3 access.
+-   **AWS WAF:** Protects the application from common web exploits and bots.
+-   **Route 53:** AWS's highly available DNS service, routing traffic to the CloudFront distribution.
+-   **ACM (SSL/TLS):** Provides secure HTTPS communication via automated certificate management.
+
+---
 ## 🏗 Key Features for Recruiters
 
 1.  **Cloud-Native Architecture:** Demonstrates real-world usage of AWS services (S3, CloudFront, Route 53).

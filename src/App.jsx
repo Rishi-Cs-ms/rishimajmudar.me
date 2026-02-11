@@ -30,10 +30,11 @@ const Nav = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
+    { name: 'Certifications', href: '#certifications' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -137,19 +138,14 @@ const Hero = () => (
         transition={{ duration: 0.8 }}
         className="flex-1 text-center md:text-left"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6">
-          <Award size={14} />
-          AWS Certified Solutions Architect
-        </div>
         <h1 className="text-6xl lg:text-8xl font-black mb-6 tracking-tight">
-          Cloud <br />
+          Cloud & <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-            Architect.
+            DevOps.
           </span>
         </h1>
         <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl mb-10">
-          Passionate AWS Cloud Engineer focused on building scalable,
-          automated, and highly available infrastructure. Currently crafting cloud solutions in Ottawa, Canada.
+          I build secure, scalable, cost-optimized, and production-ready cloud infrastructure on AWS with a strong focus on Infrastructure as Code, Kubernetes, and CI/CD automation.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -157,10 +153,10 @@ const Hero = () => (
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <div className="flex items-center gap-4">
-            <a href="https://github.com" className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="https://github.com/Rishi-Cs-ms" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="https://www.linkedin.com/in/rishimajmudar/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <Linkedin size={20} />
             </a>
           </div>
@@ -182,18 +178,147 @@ const Hero = () => (
   </section>
 );
 
+const Education = () => {
+  const education = [
+    {
+      degree: "Master of Engineering (MEng) in Software Engineering",
+      institution: "Carleton University, Ottawa, Canada",
+      period: "2025",
+      icon: <Award className="text-blue-400" />
+    },
+    {
+      degree: "Bachelor of Engineering in Computer Science",
+      institution: "Gujarat Technological University (GTU), Gujarat, India",
+      period: "2023",
+      icon: <Code2 className="text-indigo-400" />
+    }
+  ];
+
+  return (
+    <section id="education" className="py-24 bg-slate-900/50">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeading subtitle="My academic foundation in software engineering and computer science.">
+          Education
+        </SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {education.map((edu, i) => (
+            <motion.div
+              key={edu.degree}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all group"
+            >
+              <div className="flex items-start gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  {edu.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2">{edu.degree}</h3>
+                  <p className="text-blue-400 font-medium mb-2">{edu.institution}</p>
+                  <span className="px-3 py-1 rounded-lg bg-white/5 text-xs font-mono text-slate-400">
+                    {edu.period}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Certifications = () => {
+  const certs = [
+    {
+      title: "AWS Certified Solutions Architect – Associate",
+      issuer: "Amazon Web Services (AWS)",
+      link: "https://www.credly.com/badges/225b4e21-1626-4b0f-991b-7cd3a2a01d22/linked_in_profile",
+      icon: <Cloud className="text-orange-400" />,
+      color: "from-orange-500/20 to-transparent"
+    },
+    {
+      title: "Certified Kubernetes Administrator (CKA)",
+      issuer: "KodeKloud",
+      link: "https://learn.kodekloud.com/certificate/0ac21477-5391-42e1-b44f-f9a8705188cd",
+      icon: <Server className="text-blue-400" />,
+      color: "from-blue-500/20 to-transparent"
+    },
+    {
+      title: "Terraform – Infrastructure as Code",
+      issuer: "KodeKloud",
+      link: "https://learn.kodekloud.com/user/certificate/28a0abd1-bf25-497a-b69f-9b65ced43105",
+      icon: <Terminal className="text-purple-400" />,
+      color: "from-purple-500/20 to-transparent"
+    }
+  ];
+
+  return (
+    <section id="certifications" className="py-24 bg-slate-900/30">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeading subtitle="Industry-recognized validations of my technical expertise.">
+          Professional Certifications
+        </SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {certs.map((cert, i) => (
+            <motion.a
+              key={cert.title}
+              href={cert.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`p-8 rounded-3xl bg-gradient-to-br ${cert.color} border border-white/10 hover:border-white/20 transition-all group relative overflow-hidden`}
+            >
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  {cert.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">{cert.title}</h3>
+                <p className="text-slate-500 text-sm font-medium mb-6">{cert.issuer}</p>
+                <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-widest">
+                  View Credential <ExternalLink size={14} />
+                </div>
+              </div>
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Award size={80} />
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Skills = () => {
   const categories = [
-    { title: 'AWS Cloud', icon: <Cloud />, skills: ['EC2', 'S3', 'IAM', 'VPC', 'CloudFront', 'Lambda', 'RDS', 'SQS/SNS', 'Auto Scaling', 'WAF'] },
-    { title: 'DevOps & IaC', icon: <Terminal />, skills: ['Linux Bash', 'Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins', 'Terraform'] },
-    { title: 'Engineering', icon: <Code2 />, skills: ['React', 'JavaScript', 'Node.js', 'Python', 'PHP', 'MySQL/MongoDB'] },
+    {
+      title: 'Cloud (AWS)',
+      icon: <Cloud />,
+      skills: ['EC2', 'S3', 'Lambda', 'API Gateway', 'RDS', 'CloudFront', 'IAM', 'WAF', 'CloudWatch', 'VPC']
+    },
+    {
+      title: 'DevOps & Infrastructure',
+      icon: <Terminal />,
+      skills: ['Terraform', 'Kubernetes', 'Docker', 'GitHub Actions', 'CI/CD', 'Infrastructure as Code', 'Observability']
+    },
+    {
+      title: 'Development',
+      icon: <Code2 />,
+      skills: ['Node.js', 'Express.js', 'REST API', 'React', 'JavaScript', 'HTML5', 'CSS3']
+    },
   ];
 
   return (
     <section id="skills" className="py-32 bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading subtitle="Continuously evolving with the cloud-native ecosystem.">
-          Core Expertise
+        <SectionHeading subtitle="Certified expertise in cloud architecture and modern DevOps practices.">
+          Technical Skills
         </SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories.map((cat, i) => (
@@ -227,28 +352,39 @@ const Skills = () => {
 const Projects = () => {
   const list = [
     {
-      title: "Secure Cloud Architecture",
-      tech: "S3 · CloudFront · Route 53 · WAF",
-      desc: "Architected a secure static hosting environment with global CDN acceleration and web application firewall protection.",
-      icon: <Server className="text-emerald-400" />
+      title: "AI Document Parser",
+      subtitle: "Serverless Architecture",
+      tech: "AWS Lambda · API Gateway · Bedrock · Cognito · DynamoDB · CloudFront · S3",
+      desc: "A secure, production-ready serverless application for AI-powered document analysis. Implements IAM least privilege and Cognito authentication.",
+      icon: <Server className="text-emerald-400" />,
+      github: "https://github.com/Rishi-Cs-ms/ai-doc-parser",
+      live: "https://ai-doc-parser.rishimajmudar.me/"
     },
     {
-      title: "Automated CI/CD Pipelines",
-      tech: "GitHub Actions · Docker · EC2",
-      desc: "Designed and implemented automated workflows for testing, containerization, and deployment to AWS environments.",
-      icon: <Zap className="text-amber-400" />
+      title: "Three-Tier Architecture",
+      subtitle: "Production-Grade Infrastructure",
+      tech: "Terraform · EC2 ASG · ALB · RDS Multi-AZ · GitHub Actions",
+      desc: "Infrastucture as Code for a highly available web application. Features include cost-aware design, secure VPC networking, and automated CI/CD.",
+      icon: <Zap className="text-amber-400" />,
+      github: "https://github.com/Rishi-Cs-ms/aws-three-tier-architecture",
+      live: "https://aws-three-tier-architecture.rishimajmudar.me/"
     },
     {
-      title: "Distributed Monitoring",
-      tech: "Load Balancing · Replication",
-      desc: "Built a fault-tolerant monitoring system across distributed nodes ensuring high availability and zero downtime.",
-      icon: <MapPin className="text-rose-400" />
+      title: "Microservices Booking App",
+      subtitle: "EKS + DevOps",
+      tech: "Amazon EKS · Kubernetes Ingress · HPA · Docker · Terraform",
+      desc: "Containerized microservices deployed on EKS. Optimized for scaling with HPA and managed using Terraform and GitHub Actions.",
+      icon: <MapPin className="text-rose-400" />,
+      github: "https://github.com/Rishi-Cs-ms/microservice-architecture-aws-eks"
     },
     {
-      title: "E-Commerce System",
-      tech: "PHP · MySQL · Session Logic",
-      desc: "Developed a full-stack cart system with dynamic inventory management and automated tax calculation.",
-      icon: <ChevronRight className="text-blue-400" />
+      title: "Cloud Portfolio",
+      subtitle: "Secure Static Hosting + IaC",
+      tech: "S3 · CloudFront · AWS WAF · Terraform · GitHub Actions",
+      desc: "My personal portfolio hosted securely on AWS. Automated deployment pipeline and WAF protection for enhanced security.",
+      icon: <ChevronRight className="text-blue-400" />,
+      github: "https://github.com/Rishi-Cs-ms/rishimajmudar.me",
+      live: "https://portfolio.rishimajmudar.me/"
     }
   ];
 
@@ -275,12 +411,21 @@ const Projects = () => {
                       {proj.icon}
                     </div>
                     <div className="flex gap-4">
-                      <Github size={20} className="text-slate-500 hover:text-white cursor-pointer" />
-                      <ExternalLink size={20} className="text-slate-500 hover:text-white cursor-pointer" />
+                      {proj.github && (
+                        <a href={proj.github} target="_blank" rel="noopener noreferrer">
+                          <Github size={20} className="text-slate-500 hover:text-white transition-colors" />
+                        </a>
+                      )}
+                      {proj.live && (
+                        <a href={proj.live} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={20} className="text-slate-500 hover:text-white transition-colors" />
+                        </a>
+                      )}
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{proj.title}</h3>
-                  <div className="text-xs font-mono text-blue-400 mb-4 tracking-widest">{proj.tech}</div>
+                  <h3 className="text-2xl font-bold mb-1">{proj.title}</h3>
+                  <div className="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wider">{proj.subtitle}</div>
+                  <div className="text-xs font-mono text-blue-400 mb-4 tracking-widest leading-relaxed">{proj.tech}</div>
                   <p className="text-slate-400 leading-relaxed mb-8">{proj.desc}</p>
                 </div>
                 <div className="h-1 w-0 bg-blue-600 group-hover:w-full transition-all duration-700 rounded-full" />
@@ -302,14 +447,14 @@ const Experience = () => (
           <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.5)]" />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
-              <h3 className="text-2xl font-bold">AWS Cloud Intern</h3>
-              <p className="text-blue-400 font-medium">RoyalSoft Solutions, India</p>
+              <h3 className="text-2xl font-bold">Lecturer</h3>
+              <p className="text-blue-400 font-medium">KPGU, Vadodara, India</p>
             </div>
-            <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400">6 Months</span>
+            <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400">5 Months</span>
           </div>
           <p className="text-slate-400 max-w-3xl leading-relaxed">
-            Hands-on management of EC2, S3, IAM, and VPC resources. Specialized in automating infrastructure tasks
-            using AWS Lambda and CloudWatch, ensuring secure and cost-optimized environments.
+            Delivered lectures on Computer Science fundamentals, AWS cloud concepts, and networking principles.
+            Conducted hands-on sessions on EC2, S3, IAM, and VPC fundamentals. Mentored students on project development and deployment practices.
           </p>
         </div>
 
@@ -317,14 +462,14 @@ const Experience = () => (
           <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-slate-700" />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
-              <h3 className="text-2xl font-bold">University Lecturer</h3>
-              <p className="text-blue-400 font-medium">KPGU University, India</p>
+              <h3 className="text-2xl font-bold">Web Developer Intern</h3>
+              <p className="text-blue-400 font-medium">Royalsoft Solutions, Vadodara, India</p>
             </div>
-            <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400">6 Months</span>
+            <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400">4 Months</span>
           </div>
           <p className="text-slate-400 max-w-3xl leading-relaxed">
-            Mentored students in Computer Science & Engineering subjects. Led laboratory sessions and academic
-            curriculum development, while honing leadership and articulation skills.
+            Developed responsive web interfaces using HTML, CSS, and JavaScript. Built backend APIs using Node.js and Express.
+            Assisted in REST API development and debugging. Participated in testing and deployment activities.
           </p>
         </div>
       </div>
@@ -397,9 +542,11 @@ const App = () => {
     <div className="min-h-screen bg-slate-950 font-sans selection:bg-blue-500/30 text-slate-200">
       <Nav />
       <Hero />
-      <Skills />
-      <Experience />
+      <Education />
+      <Certifications />
       <Projects />
+      <Experience />
+      <Skills />
       <Contact />
 
       {/* Footer */}
@@ -407,13 +554,15 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex justify-center gap-6 mb-12">
             {[
-              { Icon: Github, href: '#' },
-              { Icon: Linkedin, href: '#' },
+              { Icon: Github, href: 'https://github.com/Rishi-Cs-ms' },
+              { Icon: Linkedin, href: 'https://www.linkedin.com/in/rishimajmudar/' },
               { Icon: Mail, href: 'mailto:rishimajmudar@gmail.com' }
             ].map(({ Icon, href }, i) => (
               <motion.a
                 key={i}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -5, scale: 1.1 }}
                 className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all border border-white/5"
               >

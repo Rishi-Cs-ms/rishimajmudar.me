@@ -367,7 +367,6 @@ const Projects = () => {
       desc: "Infrastucture as Code for a highly available web application. Features include cost-aware design, secure VPC networking, and automated CI/CD.",
       icon: <Zap className="text-amber-400" />,
       github: "https://github.com/Rishi-Cs-ms/aws-three-tier-architecture",
-      live: "https://aws-three-tier-architecture.rishimajmudar.me/"
     },
     {
       title: "Microservices Booking App",

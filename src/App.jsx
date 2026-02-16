@@ -139,13 +139,13 @@ const Hero = () => (
         className="flex-1 text-center md:text-left"
       >
         <h1 className="text-6xl lg:text-8xl font-black mb-6 tracking-tight">
-          Cloud & <br />
+          AWS Cloud <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-            DevOps.
+            Engineer.
           </span>
         </h1>
         <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl mb-10">
-          I build secure, scalable, cost-optimized, and production-ready cloud infrastructure on AWS with a strong focus on Infrastructure as Code, Kubernetes, and CI/CD automation.
+          AWS Certified Cloud Engineer building secure, scalable, and production-ready cloud architectures on AWS. Specialized in Infrastructure as Code (Terraform), Amazon EKS, and serverless systems.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -234,7 +234,7 @@ const Certifications = () => {
   const certs = [
     {
       title: "AWS Certified Solutions Architect – Associate",
-      issuer: "Amazon Web Services (AWS)",
+      issuer: "Amazon Web Services",
       link: "https://www.credly.com/badges/225b4e21-1626-4b0f-991b-7cd3a2a01d22/linked_in_profile",
       icon: <Cloud className="text-orange-400" />,
       color: "from-orange-500/20 to-transparent"
@@ -300,19 +300,20 @@ const Skills = () => {
     {
       title: 'Cloud (AWS)',
       icon: <Cloud />,
-      skills: ['EC2', 'S3', 'Lambda', 'API Gateway', 'RDS', 'CloudFront', 'IAM', 'WAF', 'CloudWatch', 'VPC']
+      skills: ['EC2', 'VPC', 'IAM', 'S3', 'RDS', 'Lambda', 'API Gateway', 'CloudFront', 'Route53', 'WAF', 'CloudWatch', 'Auto Scaling', 'EKS']
     },
     {
-      title: 'DevOps & Infrastructure',
+      title: 'Infrastructure & Containers',
+      icon: <Server />,
+      skills: ['Terraform (IaC)', 'Docker', 'Kubernetes', 'Amazon EKS', 'HPA', 'RBAC']
+    },
+    {
+      title: 'CI/CD & Automation',
       icon: <Terminal />,
-      skills: ['Terraform', 'Kubernetes', 'Docker', 'GitHub Actions', 'CI/CD', 'Infrastructure as Code', 'Observability']
-    },
-    {
-      title: 'Development',
-      icon: <Code2 />,
-      skills: ['Node.js', 'Express.js', 'REST API', 'React', 'JavaScript', 'HTML5', 'CSS3']
+      skills: ['GitHub Actions', 'Pipeline Automation', 'Infrastructure Deployment']
     },
   ];
+
 
   return (
     <section id="skills" className="py-32 bg-slate-900/50">
@@ -355,7 +356,7 @@ const Projects = () => {
       title: "AI Document Parser",
       subtitle: "Serverless Architecture",
       tech: "AWS Lambda · API Gateway · Bedrock · Cognito · DynamoDB · CloudFront · S3",
-      desc: "A secure, production-ready serverless application for AI-powered document analysis. Implements IAM least privilege and Cognito authentication.",
+      desc: "Production-ready serverless architecture built on AWS for AI-powered document processing. Designed using S3, Lambda, Bedrock, SQS, and DynamoDB with IAM least-privilege security and Cognito authentication.",
       icon: <Server className="text-emerald-400" />,
       github: "https://github.com/Rishi-Cs-ms/ai-doc-parser",
       live: "https://ai-doc-parser.rishimajmudar.me/"
@@ -390,7 +391,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading subtitle="Hands-on experience with production-grade architectures.">
+        <SectionHeading subtitle="AWS production-style architectures including serverless, EKS, and multi-tier infrastructure.">
           Featured Work
         </SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

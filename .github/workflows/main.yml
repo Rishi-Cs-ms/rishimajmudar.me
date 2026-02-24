@@ -32,7 +32,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::458130036240:role/github-potfolio
-          aws-region: us-east-1 # Adjust if your bucket is in a different region
+          aws-region: ca-central-1
 
       - name: Deploy to S3
         run: |

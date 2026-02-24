@@ -30,11 +30,11 @@ const Nav = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Education', href: '#education' },
     { name: 'Certifications', href: '#certifications' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -146,7 +146,7 @@ const Hero = () => (
           </span>
         </h1>
         <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl mb-10">
-          AWS Certified Cloud Engineer building secure, scalable, and production-ready cloud architectures on AWS. Specialized in Infrastructure as Code (Terraform), Amazon EKS, and serverless systems.
+          AWS Certified Cloud Engineer with nearly 3 years of experience designing and deploying scalable, highly available infrastructure on AWS. Experienced in Terraform-based infrastructure as code, Amazon EKS deployments, and CI/CD automation.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -299,19 +299,24 @@ const Certifications = () => {
 const Skills = () => {
   const categories = [
     {
-      title: 'Cloud (AWS)',
+      title: 'Cloud & Security',
       icon: <Cloud />,
-      skills: ['EC2', 'VPC', 'IAM', 'S3', 'RDS', 'Lambda', 'API Gateway', 'CloudFront', 'Route53', 'WAF', 'CloudWatch', 'Auto Scaling', 'EKS']
+      skills: ['EC2', 'VPC', 'IAM', 'S3', 'RDS', 'Lambda', 'API Gateway', 'CloudFront', 'Route53', 'WAF', 'EKS', 'Auto Scaling', 'CloudWatch', 'KMS', 'Secrets Manager', 'SQS', 'SNS', 'EventBridge', 'ECR']
     },
     {
       title: 'Infrastructure & Containers',
       icon: <Server />,
-      skills: ['Terraform (IaC)', 'Docker', 'Kubernetes', 'Amazon EKS', 'HPA', 'RBAC']
+      skills: ['Terraform (Modules/Backend)', 'Docker', 'Kubernetes', 'Amazon EKS', 'Helm (basic)', 'HPA', 'RBAC', 'ALB Ingress']
     },
     {
-      title: 'CI/CD & Automation',
+      title: 'CI/CD & Monitoring',
       icon: <Terminal />,
-      skills: ['GitHub Actions', 'Pipeline Automation', 'Infrastructure Deployment']
+      skills: ['GitHub Actions', 'Pipeline Automation', 'Bash', 'CloudWatch', 'IAM Least Privilege', 'KMS Encryption', 'Cognito']
+    },
+    {
+      title: 'Development',
+      icon: <Code2 />,
+      skills: ['Python (Boto3)', 'Node.js (Express)', 'REST APIs', 'JavaScript', 'Git', 'Agile/Scrum', 'JIRA']
     },
   ];
 
@@ -322,7 +327,7 @@ const Skills = () => {
         <SectionHeading subtitle="Certified expertise in cloud architecture and modern DevOps practices.">
           Technical Skills
         </SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -439,44 +444,70 @@ const Projects = () => {
   );
 };
 
-const Experience = () => (
-  <section id="experience" className="py-32 bg-slate-900/30">
-    <div className="max-w-7xl mx-auto px-6">
-      <SectionHeading>Professional Journey</SectionHeading>
-      <div className="space-y-12">
-        <div className="relative pl-12 border-l-2 border-white/10">
-          <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.5)]" />
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-            <div>
-              <h3 className="text-2xl font-bold">Lecturer</h3>
-              <p className="text-blue-400 font-medium">KPGU, Vadodara, India</p>
-            </div>
-            <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400">5 Months</span>
-          </div>
-          <p className="text-slate-400 max-w-3xl leading-relaxed">
-            Delivered lectures on Computer Science fundamentals, AWS cloud concepts, and networking principles.
-            Conducted hands-on sessions on EC2, S3, IAM, and VPC fundamentals. Mentored students on project development and deployment practices.
-          </p>
-        </div>
+const Experience = () => {
+  const experiences = [
+    {
+      title: "Cloud Engineer Canada",
+      company: "Stedi",
+      period: "June 2025 – Present",
+      points: [
+        "Designed and provisioned scalable AWS infrastructure using Terraform across development and production environments.",
+        "Deployed and managed Dockerized microservices on Amazon EKS with secure IRSA and RBAC configurations.",
+        "Configured ALB Ingress and Horizontal Pod Autoscaling to ensure high availability and workload scalability.",
+        "Built end-to-end CI/CD pipelines using GitHub Actions for automated build, test, and zero-downtime deployments.",
+        "Implemented event-driven architectures using Lambda, SQS, and EventBridge for decoupled and resilient systems.",
+        "Enforced cloud security best practices using IAM, KMS encryption, and Secrets Manager for secure access control.",
+        "Established centralized logging and monitoring with CloudWatch to improve operational visibility and incident response."
+      ],
+      current: true
+    },
+    {
+      title: "Cloud Engineer India",
+      company: "Capgemini",
+      period: "Feb 2022 – Dec 2023",
+      points: [
+        "Provisioned AWS infrastructure using Terraform to support scalable enterprise client applications.",
+        "Deployed containerized workloads to Amazon EKS and managed secure RBAC-based cluster access.",
+        "Automated deployment workflows using GitHub Actions to streamline release cycles.",
+        "Supported serverless workloads using Lambda and SQS to enable event-driven processing.",
+        "Monitored cloud environments using CloudWatch to ensure performance, stability, and availability."
+      ],
+      current: false
+    }
+  ];
 
-        <div className="relative pl-12 border-l-2 border-white/10">
-          <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-slate-700" />
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-            <div>
-              <h3 className="text-2xl font-bold">Web Developer Intern</h3>
-              <p className="text-blue-400 font-medium">Royalsoft Solutions, Vadodara, India</p>
+  return (
+    <section id="experience" className="py-32 bg-slate-900/30">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeading>Professional Experience</SectionHeading>
+        <div className="space-y-16">
+          {experiences.map((exp, index) => (
+            <div key={index} className="relative pl-12 border-l-2 border-white/10">
+              <div className={`absolute top-0 -left-[9px] w-4 h-4 rounded-full ${exp.current ? 'bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.5)]' : 'bg-slate-700'}`} />
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold">{exp.title}</h3>
+                  <p className="text-blue-400 font-medium">{exp.company}</p>
+                </div>
+                <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400 self-start md:self-center">
+                  {exp.period}
+                </span>
+              </div>
+              <ul className="space-y-4">
+                {exp.points.map((point, i) => (
+                  <li key={i} className="flex gap-4 text-slate-400 leading-relaxed">
+                    <span className="text-blue-500 shrink-0 text-xl">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <span className="px-4 py-2 rounded-full bg-white/5 text-sm font-mono text-slate-400">4 Months</span>
-          </div>
-          <p className="text-slate-400 max-w-3xl leading-relaxed">
-            Developed responsive web interfaces using HTML, CSS, and JavaScript. Built backend APIs using Node.js and Express.
-            Assisted in REST API development and debugging. Participated in testing and deployment activities.
-          </p>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Contact = () => {
   return (
@@ -543,11 +574,11 @@ const App = () => {
     <div className="min-h-screen bg-slate-950 font-sans selection:bg-blue-500/30 text-slate-200">
       <Nav />
       <Hero />
+      <Experience />
       <Education />
       <Certifications />
-      <Projects />
-      <Experience />
       <Skills />
+      <Projects />
       <Contact />
 
       {/* Footer */}
@@ -579,5 +610,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;

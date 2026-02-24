@@ -87,10 +87,10 @@ graph LR
 
 ## 🚀 Projects Showcased (in Portfolio)
 
-- **Secure Cloud Architecture:** S3 Static Hosting, CloudFront, WAF, and Route 53.
-- **Automated CI/CD Pipelines:** GitHub Actions, Docker, and EC2 deployment workflows.
-- **Distributed Monitoring:** Fault-tolerant systems with Load Balancing and Replication.
-- **E-Commerce System:** Full-stack development with PHP, MySQL, and session logic.
+- **AI Document Parser:** Serverless architecture using Lambda, Bedrock, and Cognito for intelligent document processing.
+- **Three-Tier Architecture:** Highly available AWS infrastructure provisioned with Terraform and automated via GitHub Actions.
+- **Microservices Booking App:** Containerized microservices deployed on Amazon EKS with HPA and Kubernetes Ingress.
+- **Cloud Portfolio:** Secure static hosting using S3, CloudFront, WAF, and Route 53 with automated CI/CD.
 
 ---
 

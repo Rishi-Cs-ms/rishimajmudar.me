@@ -146,7 +146,7 @@ const Hero = () => (
           </span>
         </h1>
         <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl mb-10">
-          AWS Certified Cloud Engineer with nearly 3 years of experience designing and deploying scalable, highly available infrastructure on AWS. Experienced in Terraform-based infrastructure as code, Amazon EKS deployments, and CI/CD automation.
+          AWS Certified Solutions Architect with a Master of Engineering in Software Engineering and hands-on experience designing secure, scalable, and highly available cloud architectures on AWS. Skilled in Infrastructure as Code (Terraform), Amazon EKS, serverless computing, and cloud security best practices.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -182,15 +182,15 @@ const Hero = () => (
 const Education = () => {
   const education = [
     {
-      degree: "Master of Engineering (MEng) in Software Engineering",
+      degree: "Master of Engineering in Software Engineering",
       institution: "Carleton University, Ottawa, Canada",
-      period: "2025",
+      period: "2023 – 2025",
       icon: <Award className="text-blue-400" />
     },
     {
       degree: "Bachelor of Engineering in Computer Science",
-      institution: "Gujarat Technological University (GTU), Gujarat, India",
-      period: "2023",
+      institution: "Gujarat Technological University, Gujarat, India",
+      period: "2019 – 2023",
       icon: <Code2 className="text-indigo-400" />
     }
   ];
@@ -299,24 +299,24 @@ const Certifications = () => {
 const Skills = () => {
   const categories = [
     {
-      title: 'Cloud & Security',
+      title: 'AWS Core & Architecture',
       icon: <Cloud />,
-      skills: ['EC2', 'VPC', 'IAM', 'S3', 'RDS', 'Lambda', 'API Gateway', 'CloudFront', 'Route53', 'WAF', 'EKS', 'Auto Scaling', 'CloudWatch', 'KMS', 'Secrets Manager', 'SQS', 'SNS', 'EventBridge', 'ECR']
+      skills: ['EC2', 'VPC', 'IAM', 'S3', 'RDS', 'Route53', 'CloudFront', 'WAF', 'EKS', 'ALB', 'Auto Scaling', 'Multi-AZ High Availability', 'Three-tier', 'Microservices', 'Event-driven']
     },
     {
       title: 'Infrastructure & Containers',
       icon: <Server />,
-      skills: ['Terraform (Modules/Backend)', 'Docker', 'Kubernetes', 'Amazon EKS', 'Helm (basic)', 'HPA', 'RBAC', 'ALB Ingress']
+      skills: ['Terraform (Modular)', 'Remote State (S3 + DynamoDB)', 'Docker', 'Amazon EKS', 'HPA', 'RBAC', 'ALB Ingress', 'ECR', 'StatefulSets', 'IRSA']
     },
     {
-      title: 'CI/CD & Monitoring',
+      title: 'Serverless, AI & Security',
+      icon: <Zap />,
+      skills: ['Lambda', 'API Gateway', 'SQS', 'SNS', 'AWS Textract', 'Amazon Bedrock', 'Cognito/JWT', 'Secrets Manager', 'WAF Managed Rules', 'OAC', 'CloudWatch']
+    },
+    {
+      title: 'CI/CD & Development',
       icon: <Terminal />,
-      skills: ['GitHub Actions', 'Pipeline Automation', 'Bash', 'CloudWatch', 'IAM Least Privilege', 'KMS Encryption', 'Cognito']
-    },
-    {
-      title: 'Development',
-      icon: <Code2 />,
-      skills: ['Python (Boto3)', 'Node.js (Express)', 'REST APIs', 'JavaScript', 'Git', 'Agile/Scrum', 'JIRA']
+      skills: ['GitHub Actions', 'OIDC', 'Bash', 'Linux', 'Git', 'Python', 'Node.js', 'REST APIs']
     },
   ];
 
@@ -359,38 +359,38 @@ const Skills = () => {
 const Projects = () => {
   const list = [
     {
-      title: "AI Document Parser",
-      subtitle: "Serverless Architecture",
-      tech: "AWS Lambda · API Gateway · Bedrock · Cognito · DynamoDB · CloudFront · S3",
-      desc: "Production-ready serverless architecture built on AWS for AI-powered document processing. Designed using S3, Lambda, Bedrock, SQS, and DynamoDB with IAM least-privilege security and Cognito authentication.",
+      title: "AI Document Parser (Nexus)",
+      subtitle: "Serverless, Bedrock, Textract",
+      tech: "Lambda · S3 triggers · DynamoDB (GSI) · SQS · API Gateway · Textract · Bedrock · Cognito (OAuth 2.0 PKCE)",
+      desc: "Designed event-driven serverless architecture using S3 triggers and SQS, reducing idle compute costs. Integrated AWS Textract for OCR and Amazon Bedrock for AI-based structured data extraction. Implemented OAuth 2.0 PKCE with Cognito and JWT authorization.",
       icon: <Server className="text-emerald-400" />,
       github: "https://github.com/Rishi-Cs-ms/ai-doc-parser",
       live: "https://ai-doc-parser.rishimajmudar.me/"
     },
     {
-      title: "Three-Tier Architecture",
-      subtitle: "Production-Grade Infrastructure",
-      tech: "Terraform · EC2 ASG · ALB · RDS Multi-AZ · GitHub Actions",
-      desc: "Infrastucture as Code for a highly available web application. Features include cost-aware design, secure VPC networking, and automated CI/CD.",
+      title: "Production-Grade Three-Tier AWS Architecture",
+      subtitle: "Terraform, OIDC, Multi-AZ",
+      tech: "Terraform · Multi-AZ VPC · NAT Gateway · ALB · RDS · GitHub Actions · OIDC · Secrets Manager",
+      desc: "Provisioned highly available multi-AZ infrastructure using modular Terraform, reducing manual deployment effort by 70%. Implemented CI/CD using GitHub Actions with OIDC for keyless authentication and secured database credentials via Secrets Manager.",
       icon: <Zap className="text-amber-400" />,
       github: "https://github.com/Rishi-Cs-ms/aws-three-tier-architecture",
     },
     {
-      title: "Microservices Booking App",
-      subtitle: "EKS + DevOps",
-      tech: "Amazon EKS · Kubernetes Ingress · HPA · Docker · Terraform",
-      desc: "Containerized microservices deployed on EKS. Optimized for scaling with HPA and managed using Terraform and GitHub Actions.",
-      icon: <MapPin className="text-rose-400" />,
-      github: "https://github.com/Rishi-Cs-ms/microservice-architecture-aws-eks"
-    },
-    {
-      title: "Cloud Portfolio",
-      subtitle: "Secure Static Hosting + IaC",
-      tech: "S3 · CloudFront · AWS WAF · Terraform · GitHub Actions",
-      desc: "My personal portfolio hosted securely on AWS. Automated deployment pipeline and WAF protection for enhanced security.",
+      title: "Cloud Portfolio Infrastructure",
+      subtitle: "Infrastructure as Code",
+      tech: "S3 (Private) · CloudFront (OAC) · Route53 · ACM · AWS WAF · Terraform · GitHub OIDC",
+      desc: "Architected secure static hosting using private S3 with OAC and CloudFront. Implemented rate limiting and OWASP-based WAF protections maturing security posture. Engineered Terraform remote backend with S3 state storage and DynamoDB locking.",
       icon: <ChevronRight className="text-blue-400" />,
       github: "https://github.com/Rishi-Cs-ms/rishimajmudar.me",
       live: "https://portfolio.rishimajmudar.me/"
+    },
+    {
+      title: "Microservices Platform – Amazon EKS",
+      subtitle: "EKS, Docker, HPA, StatefulSets",
+      tech: "Amazon EKS · Managed Node Groups · ECR · HPA · MongoDB StatefulSets · ALB Ingress · IRSA",
+      desc: "Deployed containerized microservices to Amazon EKS enabling scalable container orchestration. Configured ALB Ingress with path-based routing and HPA for dynamic scaling. Implemented MongoDB StatefulSets with persistent volumes and IRSA for secure IAM integration.",
+      icon: <MapPin className="text-rose-400" />,
+      github: "https://github.com/Rishi-Cs-ms/microservice-architecture-aws-eks"
     }
   ];
 
@@ -447,30 +447,26 @@ const Projects = () => {
 const Experience = () => {
   const experiences = [
     {
-      title: "Cloud Engineer Canada",
-      company: "Stedi",
-      period: "June 2025 – Present",
+      title: "Lecturer – Cloud Computing",
+      company: "KPGU University, Vadodara, India",
+      period: "Aug 2023 – Dec 2023",
       points: [
-        "Designed and provisioned scalable AWS infrastructure using Terraform across development and production environments.",
-        "Deployed and managed Dockerized microservices on Amazon EKS with secure IRSA and RBAC configurations.",
-        "Configured ALB Ingress and Horizontal Pod Autoscaling to ensure high availability and workload scalability.",
-        "Built end-to-end CI/CD pipelines using GitHub Actions for automated build, test, and zero-downtime deployments.",
-        "Implemented event-driven architectures using Lambda, SQS, and EventBridge for decoupled and resilient systems.",
-        "Enforced cloud security best practices using IAM, KMS encryption, and Secrets Manager for secure access control.",
-        "Established centralized logging and monitoring with CloudWatch to improve operational visibility and incident response."
+        "Delivered structured AWS curriculum covering VPC design, IAM security, high-availability architectures, and cost optimization principles.",
+        "Design 15+ hands-on labs demonstrating EC2, S3, Load Balancers, Auto Scaling, and serverless deployment patterns.",
+        "Guided students through real-world mini projects using Lambda, API Gateway, and SQS for event-driven systems.",
+        "Mentored 50+ students on AWS architecture design and certification preparation strategies."
       ],
-      current: true
+      current: false
     },
     {
-      title: "Cloud Engineer India",
-      company: "Capgemini",
-      period: "Feb 2022 – Dec 2023",
+      title: "Web Developer Intern",
+      company: "Royalsoft Solutions, Vadodara, India",
+      period: "Jan 2023 – Apr 2023",
       points: [
-        "Provisioned AWS infrastructure using Terraform to support scalable enterprise client applications.",
-        "Deployed containerized workloads to Amazon EKS and managed secure RBAC-based cluster access.",
-        "Automated deployment workflows using GitHub Actions to streamline release cycles.",
-        "Supported serverless workloads using Lambda and SQS to enable event-driven processing.",
-        "Monitored cloud environments using CloudWatch to ensure performance, stability, and availability."
+        "Developed scalable RESTful APIs using Node.js and Express supporting modular backend architecture.",
+        "Integrated AWS S3 and IAM for secure file storage and controlled resource access.",
+        "Optimized API performance, reducing response time by 30% through query tuning and efficient request handling.",
+        "Assisted in debugging and production issue resolution, improving application reliability."
       ],
       current: false
     }
@@ -536,7 +532,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Location</p>
-                  <p className="text-xl font-medium">Ottawa, Canada</p>
+                  <p className="text-xl font-medium">Ottawa, ON, Canada</p>
                 </div>
               </div>
             </div>

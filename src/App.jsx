@@ -184,13 +184,13 @@ const Education = () => {
     {
       degree: "Master of Engineering in Software Engineering",
       institution: "Carleton University, Ottawa, Canada",
-      period: "2023 – 2025",
+      period: "Jan 2023 – Jun 2025",
       icon: <Award className="text-blue-400" />
     },
     {
       degree: "Bachelor of Engineering in Computer Science",
       institution: "Gujarat Technological University, Gujarat, India",
-      period: "2019 – 2023",
+      period: "Jul 2019 – Jun 2023",
       icon: <Code2 className="text-indigo-400" />
     }
   ];

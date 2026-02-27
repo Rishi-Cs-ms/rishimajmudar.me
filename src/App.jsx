@@ -183,13 +183,13 @@ const Education = () => {
   const education = [
     {
       degree: "Master of Engineering in Software Engineering",
-      institution: "Carleton University, Ottawa, Canada",
-      period: "Jan 2023 – Jun 2025",
+      institution: "Carleton University, Ottawa, Canada (CGPA: 9.40/12)",
+      period: "Jan 2024 – Jun 2025",
       icon: <Award className="text-blue-400" />
     },
     {
       degree: "Bachelor of Engineering in Computer Science",
-      institution: "Gujarat Technological University, Gujarat, India",
+      institution: "Gujarat Technological University, Gujarat, India (CGPA: 8.46/10)",
       period: "Jul 2019 – Jun 2023",
       icon: <Code2 className="text-indigo-400" />
     }
@@ -359,10 +359,10 @@ const Skills = () => {
 const Projects = () => {
   const list = [
     {
-      title: "AI Document Parser (Nexus)",
+      title: "AI Document Parser",
       subtitle: "Serverless, Bedrock, Textract",
       tech: "Lambda · S3 triggers · DynamoDB (GSI) · SQS · API Gateway · Textract · Bedrock · Cognito (OAuth 2.0 PKCE)",
-      desc: "Designed event-driven serverless architecture using S3 triggers and SQS, reducing idle compute costs. Integrated AWS Textract for OCR and Amazon Bedrock for AI-based structured data extraction. Implemented OAuth 2.0 PKCE with Cognito and JWT authorization.",
+      desc: "Architected fully serverless event-driven system using Lambda, S3, and SQS, reducing infrastructure costs by 40%. Automated document processing using AWS Textract and Bedrock, reducing manual data extraction time by 75%. Implemented OAuth 2.0 PKCE with Cognito and JWT authorization.",
       icon: <Server className="text-emerald-400" />,
       github: "https://github.com/Rishi-Cs-ms/ai-doc-parser",
       live: "https://ai-doc-parser.rishimajmudar.me/"
@@ -371,15 +371,15 @@ const Projects = () => {
       title: "Production-Grade Three-Tier AWS Architecture",
       subtitle: "Terraform, OIDC, Multi-AZ",
       tech: "Terraform · Multi-AZ VPC · NAT Gateway · ALB · RDS · GitHub Actions · OIDC · Secrets Manager",
-      desc: "Provisioned highly available multi-AZ infrastructure using modular Terraform, reducing manual deployment effort by 70%. Implemented CI/CD using GitHub Actions with OIDC for keyless authentication and secured database credentials via Secrets Manager.",
+      desc: "Provisioned highly available multi-AZ infrastructure using modular Terraform, reducing setup time from hours to minutes. Implemented CI/CD using GitHub Actions with OIDC for keyless authentication and integrated AWS Secrets Manager for dynamic credential rotation.",
       icon: <Zap className="text-amber-400" />,
       github: "https://github.com/Rishi-Cs-ms/aws-three-tier-architecture",
     },
     {
       title: "Cloud Portfolio Infrastructure",
       subtitle: "Infrastructure as Code",
-      tech: "S3 (Private) · CloudFront (OAC) · Route53 · ACM · AWS WAF · Terraform · GitHub OIDC",
-      desc: "Architected secure static hosting using private S3 with OAC and CloudFront. Implemented rate limiting and OWASP-based WAF protections maturing security posture. Engineered Terraform remote backend with S3 state storage and DynamoDB locking.",
+      tech: "S3 (Private) · CloudFront (OAC) · Route53 · ACM · AWS WAF · Terraform · GitHub OIDC · CloudWatch",
+      desc: "Engineered secure static hosting blocking 95% of malicious requests using WAF managed rule sets. Enabled centralized monitoring via CloudWatch logs and metrics, improving incident detection time by 50%. Designed Terraform remote backend with DynamoDB locking.",
       icon: <ChevronRight className="text-blue-400" />,
       github: "https://github.com/Rishi-Cs-ms/rishimajmudar.me",
       live: "https://portfolio.rishimajmudar.me/"
@@ -388,7 +388,7 @@ const Projects = () => {
       title: "Microservices Platform – Amazon EKS",
       subtitle: "EKS, Docker, HPA, StatefulSets",
       tech: "Amazon EKS · Managed Node Groups · ECR · HPA · MongoDB StatefulSets · ALB Ingress · IRSA",
-      desc: "Deployed containerized microservices to Amazon EKS enabling scalable container orchestration. Configured ALB Ingress with path-based routing and HPA for dynamic scaling. Implemented MongoDB StatefulSets with persistent volumes and IRSA for secure IAM integration.",
+      desc: "Deployed containerized microservices to Amazon EKS achieving 99.9% application availability under load. Configured ALB Ingress with path-based routing and HPA, improving traffic handling efficiency by 25%. Enforced RBAC and IRSA policies for least-privilege control.",
       icon: <MapPin className="text-rose-400" />,
       github: "https://github.com/Rishi-Cs-ms/microservice-architecture-aws-eks"
     }

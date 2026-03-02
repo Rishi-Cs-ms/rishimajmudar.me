@@ -447,26 +447,30 @@ const Projects = () => {
 const Experience = () => {
   const experiences = [
     {
-      title: "Lecturer – Cloud Computing",
-      company: "KPGU University, Vadodara, India",
-      period: "Aug 2023 – Dec 2023",
+      title: "Cloud Engineer Canada",
+      company: "Stedi",
+      period: "Jun 2025 – Present",
       points: [
-        "Delivered structured AWS curriculum covering VPC design, IAM security, high-availability architectures, and cost optimization principles.",
-        "Design 15+ hands-on labs demonstrating EC2, S3, Load Balancers, Auto Scaling, and serverless deployment patterns.",
-        "Guided students through real-world mini projects using Lambda, API Gateway, and SQS for event-driven systems.",
-        "Mentored 50+ students on AWS architecture design and certification preparation strategies."
+        "Designed and provisioned scalable AWS infrastructure using Terraform across development and production environments.",
+        "Deployed and managed Dockerized microservices on Amazon EKS with secure IRSA and RBAC configurations.",
+        "Configured ALB Ingress and Horizontal Pod Autoscaling to ensure high availability and workload scalability.",
+        "Built end-to-end CI/CD pipelines using GitHub Actions for automated build, test, and zero-downtime deployments.",
+        "Implemented event-driven architectures using Lambda, SQS, and EventBridge for decoupled and resilient systems.",
+        "Enforced cloud security best practices using IAM, KMS encryption, and Secrets Manager for secure access control.",
+        "Established centralized logging and monitoring with CloudWatch to improve operational visibility and incident response."
       ],
-      current: false
+      current: true
     },
     {
-      title: "Web Developer Intern",
-      company: "Royalsoft Solutions, Vadodara, India",
-      period: "Jan 2023 – Apr 2023",
+      title: "Cloud Engineer India",
+      company: "Capgemini",
+      period: "Jan 2022 – Dec 2023",
       points: [
-        "Developed scalable RESTful APIs using Node.js and Express supporting modular backend architecture.",
-        "Integrated AWS S3 and IAM for secure file storage and controlled resource access.",
-        "Optimized API performance, reducing response time by 30% through query tuning and efficient request handling.",
-        "Assisted in debugging and production issue resolution, improving application reliability."
+        "Provisioned AWS infrastructure using Terraform to support scalable enterprise client applications.",
+        "Deployed containerized workloads to Amazon EKS and managed secure RBAC-based cluster access.",
+        "Automated deployment workflows using GitHub Actions to streamline release cycles.",
+        "Supported serverless workloads using Lambda and SQS to enable event-driven processing.",
+        "Monitored cloud environments using CloudWatch to ensure performance, stability, and availability."
       ],
       current: false
     }

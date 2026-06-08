@@ -1,105 +1,105 @@
-# rishi-portfolio
+## Portfolio Infrastructure (IaC) - AWS & Terraform
 
-A small, fast portfolio site built with Vite and React. This repository contains the source for a single-page portfolio that serves static assets and is optimized for modern static hosting providers.
+[![Terraform](https://img.shields.io/badge/Terraform-%23623CE4.svg?style=flat&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-%232088FF.svg?style=flat&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
-**Architecture**
+This repository contains the Infrastructure as Code (IaC) configuration for deploying and managing a professional portfolio website on AWS. Using Terraform, I have architected a highly available, secure, and cost-effective hosting environment.
+
+## 🏗️ Architecture Overview
+
+The infrastructure follows modern best practices for static site hosting:
+
+- **Frontend Hosting**: AWS S3 Bucket configured for private access.
+- **Content Delivery**: AWS CloudFront (CDN) with Origin Access Control (OAC) to securely serve content globally with low latency.
+- **Edge Security**: AWS WAF (Web Application Firewall) integrated with CloudFront to protect against common web exploits (SQLi, XSS) and bot traffic.
+- **DNS Management**: AWS Route53 for domain and subdomain routing.
+- **Security & SSL**: AWS Certificate Manager (ACM) for HTTPS/TLS encryption.
+- **Deployment Security**: GitHub OIDC (OpenID Connect) for secure, keyless authentication between GitHub Actions and AWS.
+- **State Management**: Remote Terraform state stored in S3 with DynamoDB for state locking.
 
 ```mermaid
-flowchart TB
-	subgraph Dev[Developer]
-		A["Local Dev - Vite dev server"]
-	end
-
-	subgraph Repo[Repository]
-		B["GitHub"]
-		C["CI/CD - optional GitHub Actions"]
-	end
-
-	subgraph Build[Build]
-		D["Build Artifact - vite build -> dist/"]
-	end
-
-	subgraph Hosting[Hosting]
-		E["Static Host - Netlify / Vercel / S3 + CloudFront"]
-		F["CDN"]
-	end
-
-	subgraph Client[Users]
-		G["Browser"]
-	end
-
-	A --> B
-	B --> C
-	C --> D
-	D --> E
-	E --> F
-	F --> G
-	A --> G
-	E ---|serves assets| G
-
-	classDef infra fill:#f3f4f6,stroke:#333,stroke-width:1px;
-	class D,E,B infra;
+graph LR
+	User -->|HTTPS| WAF[AWS WAF]
+	WAF --> CloudFront
+	CloudFront -->|OAC| S3[Private S3 Bucket]
+	Route53 -->|DNS| CloudFront
+	ACM -->|SSL Cert| CloudFront
+	GitHub_Actions -->|OIDC IAM Role| S3
+	GitHub_Actions -->|Invalidate Cache| CloudFront
 ```
 
-**Overview**
+## 🚀 Key Features
 
-- **Framework**: React + Vite
-- **Languages**: JavaScript, CSS
-- **Purpose**: Personal portfolio to showcase projects, blog links, and contact information
+- **Enterprise-Grade Edge Security**: 
+  - **AWS WAF Integration**: Deployed a Web Application Firewall with AWS Managed Rule Sets (Core Rule Set, IP Reputation, Known Bad Inputs) and custom rate-limiting to mitigate DDoS and injection attacks.
+  - **CloudFront OAC**: Enforced Origin Access Control to ensure S3 buckets remain strictly private, making the CDN the only gateway.
+- **Keyless AWS Authentication**: Leveraged GitHub OIDC to eliminate long-lived IAM User Access Keys, adopting a temporary-credential security model.
+- **Professional CI/CD Pipeline**: Configured granular IAM policies allowing GitHub Actions to securely sync assets to S3 and trigger CloudFront cache invalidations upon successful deployment.
+- **Production-Ready State Management**: Engineered a robust Terraform backend using S3 for remote state storage and DynamoDB for atomic state locking, ensuring team-safe execution.
+- **Clean, Modular Codebase**: Adhered to "Dry" principles by partitioning infrastructure into reusable core modules (`s3`, `cloudfront`, `route53`, `github-oidc`).
 
-**Repository structure**
+## 📁 Project Structure
 
-- `index.html` — app entry
-- `src/` — React source
-- `src/main.jsx` — app bootstrap
-- `src/App.jsx` — main app component
-- `src/index.css` — global styles
-- `public/` — static assets
-- `package.json` — scripts & dependencies
+```text
+.
+├── infra/                  # Core Infrastructure Layer
+│   ├── modules/            # Decoupled Architectural Components
+│   │   ├── s3/             # Origin Storage (Private Assets)
+│   │   ├── cloudfront/     # CDN with OAC & WAF Enforcement
+│   │   ├── route53/        # Managed DNS & Traffic Routing
+│   │   └── github-oidc/    # IAM Federation for Secure CI/CD
+│   ├── main.tf             # Resource Orchestration
+│   ├── backend.tf          # Remote State Configuration
+│   ├── provider.tf         # Multi-Region Setup & Providers
+│   ├── variable.tf         # Parameterized Inputs
+│   └── outputs.tf          # Resource Expose (for CI/CD consumption)
+└── statelocking/           # Initial Bootstrap Infrastructure
+	├── s3.tf               # Terraform State Persistence
+	├── dynamodb.tf         # Distributed Locking Mechanism
+	└── provider.tf         # Local Provider Configuration
+```
 
-**Getting started (local)**
+## 🛠️ How to Use
 
-Install dependencies:
+### Prerequisites
+- [Terraform](https://www.terraform.io/downloads) (latest)
+- [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate credentials
 
+### 1. Initialize State Locking
+Before running the main infrastructure, the backend resources must exist:
 ```bash
-npm install
+cd statelocking
+terraform init
+terraform apply
 ```
 
-Start dev server:
-
+### 2. Deploy Infrastructure
+Navigate to the `infra` directory to provision the website resources:
 ```bash
-npm run dev
+cd ../infra
+terraform init
+terraform plan
+terraform apply
 ```
 
-Build for production:
+### 3. Connect to Frontend
+Once the infrastructure is live, the GitHub repository for the frontend (referenced in `variable.tf`) will be able to authenticate and deploy using the provisioned IAM Role.
 
-```bash
-npm run build
-```
+### 4. Key Outputs
+After successful deployment, Terraform will output:
+- `s3_bucket_name`: The name of the private bucket hosting your site.
+- `cloudfront_domain_name`: The CloudFront URL for accessing your site.
+- `iam_role_arn`: The IAM Role ARN to use in your GitHub Actions workflow for deployment.
 
-Preview production build locally:
+## 👤 Author
 
-```bash
-npm run preview
-```
+**Rishi Majmudar**
+*Cloud Security & DevOps Engineer*
 
-**Deployment**
+- **Portfolio**: [rishimajmudar.me](https://rishimajmudar.me)
+- **GitHub**: [@Rishi-Cs-ms](https://github.com/Rishi-Cs-ms)
+- **LinkedIn**: [Rishi Majmudar](https://linkedin.com/in/rishimajmudar)
 
-This is a static site; build output in `dist/` can be deployed to any static host. Common options:
-
-- Netlify / Vercel — automatic deploys from GitHub
-- GitHub Pages — serve from `gh-pages`
-- AWS S3 + CloudFront — static site with CDN
-
-CI/CD (optional): Add a GitHub Actions workflow that runs `npm ci && npm run build` and deploys the `dist/` folder to your chosen host.
-
-**Notes & next steps**
-
-- Add meta tags and SEO enhancements in `index.html`.
-- Add structured data for projects and contact info.
-- Connect a CI workflow for automated deployments.
-
-**License**
-
-MIT — feel free to reuse and adapt.
-
+---
+*Developed as part of a Cloud Engineering portfolio to showcase advanced AWS architecture and DevSecOps practices.*

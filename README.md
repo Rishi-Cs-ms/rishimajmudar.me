@@ -6,26 +6,26 @@ A small, fast portfolio site built with Vite and React. This repository contains
 
 ```mermaid
 flowchart TB
-	subgraph Dev["Developer"]
-		A[Local Dev (Vite dev server)]
+	subgraph Dev[Developer]
+		A["Local Dev - Vite dev server"]
 	end
 
-	subgraph Repo["Repository"]
-		B[GitHub]
-		C[CI/CD (optional GitHub Actions)]
+	subgraph Repo[Repository]
+		B["GitHub"]
+		C["CI/CD - optional GitHub Actions"]
 	end
 
-	subgraph Build["Build"]
-		D[Build Artifact (vite build -> dist/)]
+	subgraph Build[Build]
+		D["Build Artifact - vite build -> dist/"]
 	end
 
-	subgraph Hosting["Hosting"]
-		E[Static Host (Netlify / Vercel / S3 + CloudFront)]
-		F[CDN]
+	subgraph Hosting[Hosting]
+		E["Static Host - Netlify / Vercel / S3 + CloudFront"]
+		F["CDN"]
 	end
 
-	subgraph Client["Users"]
-		G[Browser]
+	subgraph Client[Users]
+		G["Browser"]
 	end
 
 	A --> B

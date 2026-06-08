@@ -1,201 +1,109 @@
-# Rishi Majmudar | Cloud Architect & Portfolio
+# rishi-portfolio
 
-[![AWS Certified](https://img.shields.io/badge/AWS-Certified--Solutions--Architect-FF9900?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/certification)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind--CSS-4.0-06B6D4?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub--Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/Rfeatures/actions)
+A small, fast portfolio site built with Vite and React. This repository contains the source for a single-page portfolio that serves static assets and is optimized for modern static hosting providers.
 
-## 🌟 Overview
+**Architecture**
 
-Welcome to the repository of my professional portfolio. As an **AWS Certified Solutions Architect**, I built this site to serve as both a digital resume and a live demonstration of cloud-native architecture. 
+```mermaid
+flowchart TB
+	subgraph Dev[Developer]
+		A[Local Dev
+		(Vite dev server)]
+	end
 
-This project showcases a modern, high-performance web application built with **React 19** and **Tailwind CSS 4.0**, deployed on **AWS** using a fully automated **DevOps pipeline**.
+	subgraph Repo[Repository]
+		B[GitHub]
+		C[CI/CD
+		(optional GitHub Actions)]
+	end
 
-### 🔗 Live Demo
-- **Portfolio:** [portfolio.rishimajmudar.me](https://portfolio.rishimajmudar.me)
+	subgraph Build[Build]
+		D[Build Artifact
+		(vite build -> dist/)]
+	end
 
----
+	subgraph Hosting[Hosting]
+		E[Static Host
+		(Netlify / Vercel / S3 + CloudFront)]
+		F[CDN]
+	end
 
-## 🛠 Tech Stack
+	subgraph Client[Users]
+		G[Browser]
+	end
 
-### Frontend
-- **React 19:** Utilizing the latest React features for efficient UI rendering and state management.
-- **Vite:** High-performance build tool for modern web projects.
-- **Tailwind CSS 4.0:** Advanced utility-first CSS framework for a premium, custom-designed interface.
-- **Framer Motion:** High-fidelity animations and micro-interactions for an engaging user experience.
-- **Lucide React:** A clean and consistent iconography system.
+	A --> B
+	B --> C
+	C --> D
+	D --> E
+	E --> F
+	F --> G
+	A --> G
+	E ---|serves assets| G
 
-### Infrastructure & DevOps (AWS)
-- **Amazon S3:** Optimized static website hosting for cost-efficiency and durability.
-- **Amazon CloudFront:** Global Content Delivery Network (CDN) with edge caching for lightning-fast delivery.
-- **AWS Certificate Manager (ACM):** SSL/TLS encryption for secure HTTPS communication.
-- **GitHub Actions:** Fully automated CI/CD pipeline for building and deploying to AWS on every push.
-- **IAM OIDC:** Secure, secret-less authentication between GitHub Actions and AWS.
+	classDef infra fill:#f3f4f6,stroke:#333,stroke-width:1px;
+	class Build,Hosting,Repo infra;
+```
 
----
+**Overview**
 
-## 🏗 Architecture & Infrastructure
+- **Framework**: React + Vite
+- **Languages**: JavaScript, CSS
+- **Purpose**: Personal portfolio to showcase projects, blog links, and contact information
 
-### 🚀 Infrastructure & Deployment Flow
-The infrastructure is provisioned using **Terraform** with state-locking managed by **Amazon S3** and **DynamoDB**. The deployment is fully automated via **GitHub Actions**.
+**Repository structure**
 
-<div align="center">
-    <h1>Hi, I'm Rishi Majmudar 👋</h1>
-    <h3>AWS Cloud Engineer | Kubernetes (CKA) | Terraform | Cloud Security</h3>
-</div>
+- `index.html` — app entry
+- `src/` — React source
+- `src/main.jsx` — app bootstrap
+- `src/App.jsx` — main app component
+- `src/index.css` — global styles
+- `public/` — static assets
+- `package.json` — scripts & dependencies
 
-<p align="center">
-    I design and deploy secure, scalable, and highly available cloud infrastructure on AWS.<br>
-    Specialized in Infrastructure as Code (Terraform), serverless architectures, Amazon EKS, CI/CD automation, and cloud security best practices.
-</p>
+**Getting started (local)**
 
-<div align="center">
-    <a href="https://www.linkedin.com/in/rishimajmudar/" target="_blank">
-        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-    </a>
-    <a href="mailto:rishimajmudar@gmail.com">
-        <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-    </a>
-    <a href="https://portfolio.rishimajmudar.me/" target="_blank">
-        <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=vercel&logoColor=white" />
-    </a>
-</div>
+Install dependencies:
 
----
+```bash
+npm install
+```
 
-# 🚀 Featured Cloud Projects
+Start dev server:
 
-## 🔹 AI Document Parser – Serverless Event-Driven Architecture
+```bash
+npm run dev
+```
 
-**Architecture Highlights**
-- AWS Lambda (asynchronous execution)
-- API Gateway
-- AWS Bedrock integration
-- S3 for document storage
-- DynamoDB for metadata
-- SQS for decoupled processing
-- SNS notifications
-- Cognito authentication
-- IAM least-privilege policies
-- CloudWatch monitoring
+Build for production:
 
-**Impact**
-- Reduced document processing time by 60%
-- Fully serverless and scalable architecture
-- Secure, production-style deployment
+```bash
+npm run build
+```
 
-Live Demo:  
-https://ai-doc-parser.rishimajmudar.me/
+Preview production build locally:
 
-GitHub:  
-https://github.com/Rishi-Cs-ms/ai-doc-parser
+```bash
+npm run preview
+```
 
----
+**Deployment**
 
-## 🔹 AWS Three-Tier Architecture – Production Infrastructure (IaC)
+This is a static site; build output in `dist/` can be deployed to any static host. Common options:
 
-**Infrastructure Components**
-- Terraform (Infrastructure as Code)
-- EC2 Auto Scaling Group
-- Application Load Balancer
-- RDS Multi-AZ
-- Secure VPC (Public/Private Subnets)
-- NAT Gateway
-- IAM Security Controls
-- GitHub Actions CI/CD
+- Netlify / Vercel — automatic deploys from GitHub
+- GitHub Pages — serve from `gh-pages`
+- AWS S3 + CloudFront — static site with CDN
 
-**Key Focus**
-- High availability
-- Multi-AZ deployment
-- Automated provisioning
-- Cost-aware architecture
+CI/CD (optional): Add a GitHub Actions workflow that runs `npm ci && npm run build` and deploys the `dist/` folder to your chosen host.
 
-GitHub:  
-https://github.com/Rishi-Cs-ms/aws-three-tier-architecture
+**Notes & next steps**
 
----
+- Add meta tags and SEO enhancements in `index.html`.
+- Add structured data for projects and contact info.
+- Connect a CI workflow for automated deployments.
 
-## 🔹 Microservices Deployment on Amazon EKS
+**License**
 
-**Cloud-Native Deployment**
-- Amazon EKS (managed node groups)
-- Docker containerization
-- Kubernetes RBAC
-- IAM Roles for Service Accounts
-- Horizontal Pod Autoscaler (HPA)
-- CI/CD via GitHub Actions
+MIT — feel free to reuse and adapt.
 
-**Key Focus**
-- Scalable container workloads
-- Secure service communication
-- Production-style orchestration
-
-GitHub:  
-https://github.com/Rishi-Cs-ms/microservice-architecture-aws-eks
-
----
-
-## 🔹 Cloud Portfolio Infrastructure
-
-- S3 Static Hosting
-- CloudFront CDN
-- Route53 Custom Domain
-- AWS WAF Protection
-- Terraform provisioning
-- CI/CD automation
-
-Live:  
-https://portfolio.rishimajmudar.me/
-
-App Code:  
-https://github.com/Rishi-Cs-ms/rishimajmudar.me
-
-Infrastructure Code:  
-https://github.com/Rishi-Cs-ms/rishimajmudar.me-infra
-
----
-
-# 🏆 Certifications
-
-- **AWS Certified Solutions Architect – Associate**
-- **Certified Kubernetes Administrator (CKA)**
-- **HashiCorp Terraform – Infrastructure as Code**
-
----
-
-# ☁️ Core Technical Expertise
-
-### Cloud (AWS)
-EC2 • VPC • IAM • S3 • RDS • Lambda • API Gateway • CloudFront • Route53 • WAF • CloudWatch • Auto Scaling • EKS
-
-### Infrastructure & Containers
-Terraform • Docker • Kubernetes • Amazon EKS • HPA • RBAC
-
-### CI/CD & Automation
-GitHub Actions • Infrastructure Deployment • Pipeline Automation
-
-### Programming
-Python • Node.js • REST APIs • JavaScript
-
----
-
-# 💼 Experience
-
-### Cloud & Networking Lecturer  
-KPGU University, India | Aug 2023 – Dec 2023
-- Delivered AWS cloud and networking lectures to 150+ students
-- Conducted hands-on labs on EC2, S3, IAM, and VPC
-- Mentored students on cloud deployment projects
-
-### Full Stack Web Developer Intern  
-Royalsoft Solutions, India | Jan 2023 – Apr 2023
-- Developed backend APIs using Node.js and Express
-- Optimized REST endpoints improving performance by 30%
-- Assisted in debugging production applications
-
----
-
-# 🎯 Focus
-
-Currently seeking **entry-level AWS Cloud Engineer opportunities in Canada**, focused on cloud infrastructure, automation, security, and scalable architecture design.

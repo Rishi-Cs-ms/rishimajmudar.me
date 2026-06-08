@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind--CSS-4.0-06B6D4?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub--Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub--Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/Rfeatures/actions)
 
 ## 🌟 Overview
 
@@ -40,89 +40,162 @@ This project showcases a modern, high-performance web application built with **R
 ### 🚀 Infrastructure & Deployment Flow
 The infrastructure is provisioned using **Terraform** with state-locking managed by **Amazon S3** and **DynamoDB**. The deployment is fully automated via **GitHub Actions**.
 
-```mermaid
-graph TD
-    A[GitHub Repo] --> B[Terraform]
-    B -->|Executed Locally| C[S3 + DynamoDB State Locking]
-    B --> D[GitHub Actions CI/CD]
-    D --> E[Push Code to S3]
-    E --> F[Private S3 Bucket]
-    F --> G[Amazon CloudFront Global CDN]
-    G --> H[AWS WAF]
-    H --> I[SSL/TLS ACM]
-    I --> J[Route 53 DNS Records]
-    J --> K[User Accesses Website]
-```
+<div align="center">
+    <h1>Hi, I'm Rishi Majmudar 👋</h1>
+    <h3>AWS Cloud Engineer | Kubernetes (CKA) | Terraform | Cloud Security</h3>
+</div>
 
-### 🌐 User Runtime Traffic
-Secure and optimized traffic flow from the end-user to the static content hosted on S3.
+<p align="center">
+    I design and deploy secure, scalable, and highly available cloud infrastructure on AWS.<br>
+    Specialized in Infrastructure as Code (Terraform), serverless architectures, Amazon EKS, CI/CD automation, and cloud security best practices.
+</p>
 
-```mermaid
-graph LR
-    User[User] --> WAF[AWS WAF]
-    WAF --> R53[Route 53 DNS]
-    R53 --> CF[Amazon CloudFront]
-    CF --> S3[Private S3 Bucket - OAC]
-```
-
-### 🧱 Core Components
-
--   **Terraform (IaC):** Manages the entire AWS lifecycle. Uses S3 for state storage and DynamoDB for state locking to prevent concurrent modifications.
--   **GitHub Actions:** Handles the CI/CD pipeline, building the React app and syncing the production build to S3.
--   **Amazon S3:** Hosts the static website files. Public access is disabled, and content is served exclusively through CloudFront.
--   **Amazon CloudFront:** Acts as a global CDN, caching content at edge locations to minimize latency. Integrated with **Origin Access Control (OAC)** for secure S3 access.
--   **AWS WAF:** Protects the application from common web exploits and bots.
--   **Route 53:** AWS's highly available DNS service, routing traffic to the CloudFront distribution.
--   **ACM (SSL/TLS):** Provides secure HTTPS communication via automated certificate management.
-
----
-## 🏗 Key Features for Recruiters
-
-1.  **Cloud-Native Architecture:** Demonstrates real-world usage of AWS services (S3, CloudFront, Route 53).
-2.  **Modern Frontend Development:** Clean, modular React code focusing on performance and responsiveness.
-3.  **CI/CD Maturity:** Every change is automatically built, optimized, and deployed to production.
-4.  **Premium UX:** Custom-built components with smooth transitions and a mobile-first approach.
+<div align="center">
+    <a href="https://www.linkedin.com/in/rishimajmudar/" target="_blank">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+    </a>
+    <a href="mailto:rishimajmudar@gmail.com">
+        <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+    </a>
+    <a href="https://portfolio.rishimajmudar.me/" target="_blank">
+        <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=vercel&logoColor=white" />
+    </a>
+</div>
 
 ---
 
-## 🚀 Projects Showcased (in Portfolio)
+# 🚀 Featured Cloud Projects
 
-- **AI Document Parser:** Serverless architecture using Lambda, Bedrock, and Cognito for intelligent document processing.
-- **Three-Tier Architecture:** Highly available AWS infrastructure provisioned with Terraform and automated via GitHub Actions.
-- **Microservices Booking App:** Containerized microservices deployed on Amazon EKS with HPA and Kubernetes Ingress.
-- **Cloud Portfolio:** Secure static hosting using S3, CloudFront, WAF, and Route 53 with automated CI/CD.
+## 🔹 AI Document Parser – Serverless Event-Driven Architecture
+
+**Architecture Highlights**
+- AWS Lambda (asynchronous execution)
+- API Gateway
+- AWS Bedrock integration
+- S3 for document storage
+- DynamoDB for metadata
+- SQS for decoupled processing
+- SNS notifications
+- Cognito authentication
+- IAM least-privilege policies
+- CloudWatch monitoring
+
+**Impact**
+- Reduced document processing time by 60%
+- Fully serverless and scalable architecture
+- Secure, production-style deployment
+
+Live Demo:  
+https://ai-doc-parser.rishimajmudar.me/
+
+GitHub:  
+https://github.com/Rishi-Cs-ms/ai-doc-parser
+
+---
+
+## 🔹 AWS Three-Tier Architecture – Production Infrastructure (IaC)
+
+**Infrastructure Components**
+- Terraform (Infrastructure as Code)
+- EC2 Auto Scaling Group
+- Application Load Balancer
+- RDS Multi-AZ
+- Secure VPC (Public/Private Subnets)
+- NAT Gateway
+- IAM Security Controls
+- GitHub Actions CI/CD
+
+**Key Focus**
+- High availability
+- Multi-AZ deployment
+- Automated provisioning
+- Cost-aware architecture
+
+GitHub:  
+https://github.com/Rishi-Cs-ms/aws-three-tier-architecture
 
 ---
 
-## 💻 Local Development
+## 🔹 Microservices Deployment on Amazon EKS
 
-1.  **Clone & Install:**
-    ```bash
-    git clone https://github.com/Rishi-Cs-ms/rishimajmudar.me.git
-    cd rishi-portfolio
-    npm install
-    ```
+**Cloud-Native Deployment**
+- Amazon EKS (managed node groups)
+- Docker containerization
+- Kubernetes RBAC
+- IAM Roles for Service Accounts
+- Horizontal Pod Autoscaler (HPA)
+- CI/CD via GitHub Actions
 
-2.  **Run Development Server:**
-    ```bash
-    npm run dev
-    ```
+**Key Focus**
+- Scalable container workloads
+- Secure service communication
+- Production-style orchestration
 
-3.  **Production Build:**
-    ```bash
-    npm run build
-    ```
+GitHub:  
+https://github.com/Rishi-Cs-ms/microservice-architecture-aws-eks
+
+---
+
+## 🔹 Cloud Portfolio Infrastructure
+
+- S3 Static Hosting
+- CloudFront CDN
+- Route53 Custom Domain
+- AWS WAF Protection
+- Terraform provisioning
+- CI/CD automation
+
+Live:  
+https://portfolio.rishimajmudar.me/
+
+App Code:  
+https://github.com/Rishi-Cs-ms/rishimajmudar.me
+
+Infrastructure Code:  
+https://github.com/Rishi-Cs-ms/rishimajmudar.me-infra
 
 ---
 
-## ✉️ Contact Information
+# 🏆 Certifications
 
-- **Name:** Rishi Majmudar
-- **Role:** Cloud Architect / AWS Certified Solutions Architect
-- **Email:** [rishimajmudar@gmail.com](mailto:rishimajmudar@gmail.com)
-- **Location:** Ottawa, Canada
-- **LinkedIn:** [linkedin.com/in/rishi-majmudar](https://linkedin.com/in/rishi-majmudar)
-- **GitHub:** [github.com/Rishi-Cs-ms](https://github.com/Rishi-Cs-ms)
+- **AWS Certified Solutions Architect – Associate**
+- **Certified Kubernetes Administrator (CKA)**
+- **HashiCorp Terraform – Infrastructure as Code**
 
 ---
-*Created with ❤️ by Rishi Majmudar*
+
+# ☁️ Core Technical Expertise
+
+### Cloud (AWS)
+EC2 • VPC • IAM • S3 • RDS • Lambda • API Gateway • CloudFront • Route53 • WAF • CloudWatch • Auto Scaling • EKS
+
+### Infrastructure & Containers
+Terraform • Docker • Kubernetes • Amazon EKS • HPA • RBAC
+
+### CI/CD & Automation
+GitHub Actions • Infrastructure Deployment • Pipeline Automation
+
+### Programming
+Python • Node.js • REST APIs • JavaScript
+
+---
+
+# 💼 Experience
+
+### Cloud & Networking Lecturer  
+KPGU University, India | Aug 2023 – Dec 2023
+- Delivered AWS cloud and networking lectures to 150+ students
+- Conducted hands-on labs on EC2, S3, IAM, and VPC
+- Mentored students on cloud deployment projects
+
+### Full Stack Web Developer Intern  
+Royalsoft Solutions, India | Jan 2023 – Apr 2023
+- Developed backend APIs using Node.js and Express
+- Optimized REST endpoints improving performance by 30%
+- Assisted in debugging production applications
+
+---
+
+# 🎯 Focus
+
+Currently seeking **entry-level AWS Cloud Engineer opportunities in Canada**, focused on cloud infrastructure, automation, security, and scalable architecture design.

@@ -140,13 +140,13 @@ const Hero = () => (
         className="flex-1 text-center md:text-left"
       >
         <h1 className="text-6xl lg:text-8xl font-black mb-6 tracking-tight">
-          AWS Cloud <br />
+          Full Stack <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-            Engineer.
+            Developer.
           </span>
         </h1>
         <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl mb-10">
-          AWS Certified Solutions Architect and Cloud Engineer focused on architecting High-Availability (99.99%) cloud infrastructures. Leverages Infrastructure as Code (Terraform), Kubernetes orchestration, and CI/CD automation to reduce operational overhead by 40%. Implements automated cost-optimization via Horizontal Pod Autoscaling (HPA) and serverless architectures to improve performance and reliability.
+          Full Stack Developer with 3+ years experience building scalable backend services and web apps using Python (FastAPI, Django), JavaScript/TypeScript, and React. Experienced with Docker, Kubernetes, AWS, and designing data layers with PostgreSQL, MongoDB, Redis, and Kafka. Focused on reliable, observable systems and practical CI/CD practices.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -297,27 +297,38 @@ const Certifications = () => {
 };
 
 const Skills = () => {
+  // Combined and simplified categories for cleaner layout
   const categories = [
     {
-      title: 'Cloud & Security',
+      title: 'Languages & Frameworks',
+      icon: <Code2 />,
+      skills: ['Python', 'JavaScript (ES6+)', 'TypeScript', 'Django', 'DRF', 'Flask', 'FastAPI', 'Node.js', 'SQL']
+    },
+    {
+      title: 'Frontend',
       icon: <Cloud />,
-      skills: ['EC2', 'VPC', 'S3', 'RDS', 'Lambda', 'API Gateway', 'CloudFront', 'WAF', 'EKS', 'IAM', 'KMS', 'Cognito']
+      skills: ['HTML5', 'CSS3', 'React.js', 'Redux Toolkit', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'Figma']
     },
     {
-      title: 'Infrastructure & Containers',
+      title: 'Cloud & DevOps',
       icon: <Server />,
-      skills: ['Terraform (Modules, State Management)', 'Docker', 'Kubernetes', 'Helm', 'HPA', 'RBAC']
+      skills: ['AWS (EC2, Lambda, S3, RDS, CloudWatch)', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'GitHub Actions', 'Linux']
     },
     {
-      title: 'CI/CD & Automation',
-      icon: <Terminal />,
-      skills: ['GitHub Actions', 'Bash Scripting', 'Python (Boto3)', 'Node.js', 'RESTful API Design']
-    },
-    {
-      title: 'Monitoring & Tools',
+      title: 'Databases & Messaging',
       icon: <Zap />,
-      skills: ['CloudWatch', 'Prometheus (basic)', 'Git', 'Agile/Scrum', 'JIRA', 'Linux Administration']
+      skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'RabbitMQ', 'Kafka', 'Redis Streams', 'ELK']
     },
+    {
+      title: 'Testing & CI/CD',
+      icon: <Terminal />,
+      skills: ['PyTest', 'unittest', 'Postman', 'Selenium', 'Swagger/OpenAPI', 'SonarQube', 'Jenkins Pipelines', 'Docker Compose']
+    },
+    {
+      title: 'AI & Tools',
+      icon: <Award />,
+      skills: ['TensorFlow', 'Scikit-learn', 'LLM Integration (OpenAI, LangChain)', 'RAG', 'VS Code', 'PyCharm', 'Chrome DevTools']
+    }
   ];
 
 
@@ -327,7 +338,7 @@ const Skills = () => {
         <SectionHeading subtitle="Certified expertise in cloud architecture and modern DevOps practices.">
           Technical Skills
         </SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -335,7 +346,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all group"
+              className="p-6 rounded-2xl bg-white/5 border border-white/8 hover:border-blue-500/40 transition-all group"
             >
               <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                 {cat.icon}
@@ -343,7 +354,7 @@ const Skills = () => {
               <h3 className="text-2xl font-bold mb-6">{cat.title}</h3>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map(s => (
-                  <span key={s} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs font-semibold text-slate-400">
+                  <span key={s} className="px-2 py-1 rounded-md bg-white/3 text-xs font-medium text-slate-300">
                     {s}
                   </span>
                 ))}
@@ -447,24 +458,37 @@ const Projects = () => {
 const Experience = () => {
   const experiences = [
     {
-      title: "Lecturer – Cloud Computing",
-      company: "KPGU University",
-      period: "Aug 2023 – Dec 2023",
+      title: "Full Stack Developer",
+      company: "DXC Technology, Canada",
+      period: "Jan 2025 – Present",
       points: [
-        "Architected a structured AWS curriculum for 50+ students, resulting in a 90% pass rate for internal architectural assessments and hands-on lab evaluations.",
-        "Facilitated 15+ technical workshops on VPC peering, Multi-AZ deployments, and Auto Scaling, improving student proficiency in troubleshooting distributed systems by 45%.",
-        "Mentored 5 student teams in deploying event-driven applications using AWS Lambda and SQS, cutting average deployment errors by 30% through standardized CI/CD practices."
+        "Reviewed the existing post-trade enrichment system to identify delays and rule-handling issues, and provided improvement recommendations guiding the team’s modernization approach.",
+        "Converted core enrichment logic into Python microservices using FastAPI, enabling independent deployments and safer updates to trade flows.",
+        "Set up a real-time event ingestion layer on Apache Kafka, allowing the platform to process ~15K+ trade events/sec and dramatically reducing lag from the previous batch workflow.",
+        "Built Spark Structured Streaming jobs to validate, map, and enrich trade attributes, improving data consistency and lowering downstream reconciliation issues by ~18%.",
+        "Introduced Open Policy Agent (OPA) to centralize entitlement and compliance rules, cutting conflicting rule configurations across trade flows by roughly half.",
+        "Improved PostgreSQL and MongoDB performance via schema restructuring, indexing, and query optimization, resulting in ~20% faster queries during peak hours.",
+        "Added Redis caching for high-frequency enrichment lookups, reducing DB load and bringing API response times down from ~280 ms to ~180 ms.",
+        "Created a React + TypeScript dashboard for Operations to track trade lineage and review exceptions in real time, cutting investigation time by 35–40%.",
+        "Containerized services with Docker and deployed on Kubernetes with autoscaling and health checks, improving stability and maintaining 99.9% uptime during market volatility.",
+        "Strengthened CI/CD with Jenkins, GitHub Actions, PyTest, Jest, and contract testing, raising test coverage to ~90% and reducing integration issues before release by ~25%."
       ],
-      current: false
+      current: true
     },
     {
-      title: "Web Developer Intern",
-      company: "Royalsoft Solutions",
-      period: "Jan 2023 – Apr 2023",
+      title: "Full Stack Developer",
+      company: "Newgen Software, India",
+      period: "May 2022 – Dec 2023",
       points: [
-        "Engineered Node.js/Express REST APIs for high-traffic modules, reducing average server response time by 30% through optimized MongoDB indexing and query caching.",
-        "Orchestrated secure file-handling workflows using AWS S3 and IAM policies, eliminating unauthorized data access incidents and ensuring 100% compliance with internal security audits.",
-        "Collaborated with senior engineers to resolve 20+ critical production bugs, increasing platform stability and reducing weekly downtime by 12%."
+        "Rebuilt critical legacy workflows into Python microservices using FastAPI and Django REST, simplifying maintenance and improving system stability.",
+        "Developed backend services for case assignment, audit review, document handling, and dashboards using FastAPI, SQLAlchemy, and Redis, improving processing speed by 20–25%.",
+        "Implemented Kafka event streams to ensure taxpayer data consistency across modules, enabling near real-time updates and cutting manual reconciliation by ~30%.",
+        "Optimized PostgreSQL through query tuning, indexing, and table restructuring, halving report generation times and improving responsiveness during high-volume seasons.",
+        "Redesigned officer-facing interfaces with React.js and TypeScript, reducing average case lookup times by 15–20% as reported by end-users.",
+        "Integrated OAuth2 and role-based access via Keycloak, securing sensitive modules and ensuring workflows were accessible only to authorized personnel.",
+        "Built a configuration-driven rules engine in Python to let policy teams update assessment and validation rules without code releases, shortening change cycles from weeks to days.",
+        "Identified and resolved API performance bottlenecks using PySpy and logs, improving latency for frequently used endpoints by 20–30%.",
+        "Set up automated CI/CD pipelines with GitLab CI, Jenkins, Docker, and SonarQube, standardizing deployments and improving release predictability."
       ],
       current: false
     }
@@ -520,7 +544,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Email</p>
-                  <p className="text-xl font-medium">rishimajmudar96@gmail.com</p>
+                  <p className="text-xl font-medium">rishimajmudar25@gmail.com</p>
                 </div>
               </div>
 

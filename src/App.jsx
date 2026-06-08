@@ -5,6 +5,7 @@ import {
   Terminal,
   Code2,
   Mail,
+  Phone,
   Github,
   Linkedin,
   Download,
@@ -139,14 +140,15 @@ const Hero = () => (
         transition={{ duration: 0.8 }}
         className="flex-1 text-center md:text-left"
       >
-        <h1 className="text-6xl lg:text-8xl font-black mb-6 tracking-tight">
-          AWS Cloud <br />
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight">
+          Rishi Majmudar
+          <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-            Engineer.
+            Full Stack Developer
           </span>
         </h1>
-        <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl mb-10">
-          AWS Certified Solutions Architect and Cloud Engineer focused on architecting High-Availability (99.99%) cloud infrastructures. Leverages Infrastructure as Code (Terraform), Kubernetes orchestration, and CI/CD automation to reduce operational overhead by 40%. Implements automated cost-optimization via Horizontal Pod Autoscaling (HPA) and serverless architectures to improve performance and reliability.
+        <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mb-6">
+          Full Stack Developer with 3+ years experience building scalable, API-driven systems using Python and JavaScript. Experienced with FastAPI, Django REST Framework, Flask, containerization with Docker, orchestration on Kubernetes, and deploying cloud-native applications on AWS. Focused on reliability, observability, and clean architecture while partnering in Agile teams to deliver end-to-end solutions.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -299,25 +301,45 @@ const Certifications = () => {
 const Skills = () => {
   const categories = [
     {
-      title: 'Cloud & Security',
-      icon: <Cloud />,
-      skills: ['EC2', 'VPC', 'S3', 'RDS', 'Lambda', 'API Gateway', 'CloudFront', 'WAF', 'EKS', 'IAM', 'KMS', 'Cognito']
+      title: 'Programming Languages',
+      icon: <Code2 />,
+      skills: ['Python', 'JavaScript (ES6+)', 'TypeScript', 'SQL']
     },
     {
-      title: 'Infrastructure & Containers',
+      title: 'Backend Frameworks',
       icon: <Server />,
-      skills: ['Terraform (Modules, State Management)', 'Docker', 'Kubernetes', 'Helm', 'HPA', 'RBAC']
+      skills: ['Django', 'Django REST Framework', 'FastAPI', 'Flask', 'Celery', 'SQLAlchemy', 'Node.js']
     },
     {
-      title: 'CI/CD & Automation',
-      icon: <Terminal />,
-      skills: ['GitHub Actions', 'Bash Scripting', 'Python (Boto3)', 'Node.js', 'RESTful API Design']
+      title: 'Frontend & UI',
+      icon: <Cloud />,
+      skills: ['React.js', 'Redux Toolkit', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3']
     },
     {
-      title: 'Monitoring & Tools',
+      title: 'Databases & Storage',
+      icon: <MapPin />,
+      skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'DynamoDB']
+    },
+    {
+      title: 'Cloud & DevOps',
       icon: <Zap />,
-      skills: ['CloudWatch', 'Prometheus (basic)', 'Git', 'Agile/Scrum', 'JIRA', 'Linux Administration']
+      skills: ['AWS (S3, Lambda, EC2, RDS, CloudFront)', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions']
     },
+    {
+      title: 'Testing & QA',
+      icon: <Terminal />,
+      skills: ['PyTest', 'UnitTest', 'Jest', 'Postman', 'Selenium', 'Swagger/OpenAPI']
+    },
+    {
+      title: 'Messaging & Streaming',
+      icon: <Cloud />,
+      skills: ['RabbitMQ', 'Kafka', 'Redis Streams', 'ELK Stack']
+    },
+    {
+      title: 'AI & ML',
+      icon: <Zap />,
+      skills: ['OpenAI / LLMs', 'LangChain', 'RAG', 'TensorFlow', 'Scikit-learn']
+    }
   ];
 
 
@@ -447,24 +469,32 @@ const Projects = () => {
 const Experience = () => {
   const experiences = [
     {
-      title: "Lecturer – Cloud Computing",
-      company: "KPGU University",
-      period: "Aug 2023 – Dec 2023",
+      title: "Full Stack Developer",
+      company: "DXC Technology, Canada",
+      period: "Jan 2025 – Present",
       points: [
-        "Architected a structured AWS curriculum for 50+ students, resulting in a 90% pass rate for internal architectural assessments and hands-on lab evaluations.",
-        "Facilitated 15+ technical workshops on VPC peering, Multi-AZ deployments, and Auto Scaling, improving student proficiency in troubleshooting distributed systems by 45%.",
-        "Mentored 5 student teams in deploying event-driven applications using AWS Lambda and SQS, cutting average deployment errors by 30% through standardized CI/CD practices."
+        "Converted core enrichment logic into Python microservices using FastAPI for independent deployments and easier maintenance.",
+        "Built a real-time event ingestion layer on Apache Kafka processing ~15K+ trade events per second, reducing processing lag significantly.",
+        "Implemented Spark Structured Streaming jobs to validate and enrich trade attributes, improving downstream reconciliation by ~18%.",
+        "Introduced Open Policy Agent (OPA) for centralized entitlement and compliance policies, reducing conflicting configurations across flows by ~50%.",
+        "Optimized PostgreSQL and MongoDB performance through indexing and schema adjustments, reducing critical query latency by ~20%.",
+        "Added Redis caching for high-frequency lookups, reducing API response times from ~280ms to ~180ms.",
+        "Containerized services with Docker and deployed on Kubernetes with autoscaling and health checks, maintaining 99.9% uptime.",
+        "Improved CI/CD using Jenkins, GitHub Actions, and extensive testing (PyTest, Jest), raising test coverage and reducing integration failures."
       ],
-      current: false
+      current: true
     },
     {
-      title: "Web Developer Intern",
-      company: "Royalsoft Solutions",
-      period: "Jan 2023 – Apr 2023",
+      title: "Full Stack Developer",
+      company: "Newgen Software, India",
+      period: "May 2022 – Dec 2023",
       points: [
-        "Engineered Node.js/Express REST APIs for high-traffic modules, reducing average server response time by 30% through optimized MongoDB indexing and query caching.",
-        "Orchestrated secure file-handling workflows using AWS S3 and IAM policies, eliminating unauthorized data access incidents and ensuring 100% compliance with internal security audits.",
-        "Collaborated with senior engineers to resolve 20+ critical production bugs, increasing platform stability and reducing weekly downtime by 12%."
+        "Rebuilt legacy workflows into Python microservices using FastAPI and Django REST, simplifying maintenance and reducing inter-module coupling.",
+        "Implemented Kafka event streams to ensure data consistency across modules and cut manual reconciliation by ~30%.",
+        "Improved PostgreSQL performance with query tuning and indexing, halving report generation times.",
+        "Redesigned officer-facing UI with React and TypeScript, reducing average lookup times by 15–20%.",
+        "Integrated OAuth2 and Keycloak for role-based access control securing sensitive modules.",
+        "Built a configuration-driven rules engine enabling policy changes without code releases, reducing change cycles from weeks to days."
       ],
       current: false
     }
@@ -520,7 +550,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Email</p>
-                  <p className="text-xl font-medium">rishimajmudar96@gmail.com</p>
+                  <p className="text-xl font-medium">rishimajmudar25@gmail.com</p>
                 </div>
               </div>
 
@@ -582,7 +612,8 @@ const App = () => {
             {[
               { Icon: Github, href: 'https://github.com/Rishi-Cs-ms' },
               { Icon: Linkedin, href: 'https://www.linkedin.com/in/rishimajmudar/' },
-              { Icon: Mail, href: 'mailto:rishimajmudar96@gmail.com' }
+              { Icon: Mail, href: 'mailto:rishimajmudar25@gmail.com' },
+              { Icon: Phone, href: 'tel:+17538812552' }
             ].map(({ Icon, href }, i) => (
               <motion.a
                 key={i}

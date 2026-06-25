@@ -144,11 +144,11 @@ const Hero = () => (
           Rishi Majmudar
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-            Full Stack Developer
+            Software Developer
           </span>
         </h1>
         <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mb-6">
-          Full Stack Developer with 3+ years experience building scalable, API-driven systems using Python and JavaScript. Experienced with FastAPI, Django REST Framework, Flask, containerization with Docker, orchestration on Kubernetes, and deploying cloud-native applications on AWS. Focused on reliability, observability, and clean architecture while partnering in Agile teams to deliver end-to-end solutions.
+          Software Developer with 3+ years experience building scalable, API-driven systems using Python and JavaScript. Experienced with FastAPI, Django REST Framework, Flask, containerization with Docker, orchestration on Kubernetes, and deploying cloud-native applications on AWS. Focused on reliability, observability, and clean architecture while partnering in Agile teams to deliver end-to-end solutions.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
           <a href="#projects" className="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold hover:scale-105 transition-all flex items-center gap-2 group">
@@ -313,7 +313,7 @@ const Skills = () => {
     {
       title: 'Frontend & UI',
       icon: <Cloud />,
-      skills: ['React.js', 'Redux Toolkit', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3']
+      skills: ['React.js', 'Redux Toolkit', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3', 'Streamlit']
     },
     {
       title: 'Databases & Storage',
@@ -338,7 +338,7 @@ const Skills = () => {
     {
       title: 'AI & ML',
       icon: <Zap />,
-      skills: ['OpenAI / LLMs', 'LangChain', 'RAG', 'TensorFlow', 'Scikit-learn']
+      skills: ['Retrieval-Augmented Generation (RAG)', 'Large Language Models (LLMs)', 'Ollama', 'Prompt Engineering', 'Vector Search', 'Embeddings', 'Hybrid Search (BM25 + Vector Search)', 'ChromaDB', 'Semantic Search', 'Natural Language Processing (NLP)']
     }
   ];
 
@@ -380,6 +380,14 @@ const Skills = () => {
 
 const Projects = () => {
   const list = [
+    {
+      title: "Hybrid RAG Explorer",
+      subtitle: "RAG · BM25 · ChromaDB · Ollama",
+      tech: "Python · Streamlit · ChromaDB · BM25 · Ollama · RRF",
+      desc: "Built a hybrid RAG system that combines BM25 keyword search and ChromaDB vector search with Reciprocal Rank Fusion (RRF) to improve document retrieval relevance. The platform ingests PDF, DOCX, TXT, and CSV files through an automated chunking and metadata pipeline, then powers real-time question answering with Ollama-hosted LLMs and explainable retrieval analytics.",
+      icon: <Code2 className="text-cyan-400" />,
+      github: "https://github.com/Rishi-Cs-ms/ai-rag-platform.git"
+    },
     {
       title: "AI Document Parser",
       subtitle: "Serverless, Bedrock, Textract",
